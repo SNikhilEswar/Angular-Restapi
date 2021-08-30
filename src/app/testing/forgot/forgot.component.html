@@ -1,0 +1,31 @@
+<section class="py-2">
+    <div class="container py-3">
+        <div class="col-lg-10 mx-auto">
+            <div class="card bg-white shadow">
+                <div class="card-body">
+                    <h1 class="card-text">Forgot Password</h1>
+                    <hr>
+                    <div class="py-5">
+                        <form *ngIf="!success"  [formGroup]="Form" (ngSubmit)="onSubmit()">
+                            <div class="form-group">
+                                <input type="email" formControlName="email" class="form-control" placeholder="Please Enter your email">
+                                <small class="text-danger" *ngIf="!Form.get('email').valid && Form.get('email').touched">please fill the gaps</small>
+                            </div>
+                            <button class="btn btn-primary" type="submit">Forgot Password</button>
+                        </form>
+                    </div>
+                    <div  class="container">
+                        <div *ngIf="success" class="alert alert-success py-4" role="alert">
+                            <h1>Success!</h1>
+                            <span>Please check your email and click in verfication link to reset password</span>
+                    </div>
+                    <div *ngIf="error" class="alert alert-danger py-4" role="alert">
+                        <h1>Error!</h1>
+                        <span>{{error}}</span>
+                </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+            </div>
+            </section>

@@ -1,0 +1,48 @@
+
+<div class="container-fluid">
+    <div class="row no-gutter">
+        <!-- The image half -->
+        <!-- The content half -->
+        <div class="col-md-6 bg-light" style="margin: 20px 300px;">
+            <div class="login d-flex align-items-center py-5">
+
+                <!-- Demo content-->
+                <div class="container">
+                    <div *ngIf="error" class="alert alert-danger">
+                        <strong>An Error Occured:</strong> {{error}}
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-10 col-xl-7 mx-auto">
+                            <h3 class="display-4">Angular Auth!</h3>
+                            <p class="text-muted mb-4">{{loginMode? 'Sign In' :'Create a login' }} split page using Bootstrap 4.</p>
+                            <form [formGroup]="Form" (ngSubmit)="onSubmit()">
+                                <div class="form-group mb-3">
+                                    <input id="inputEmail" type="email" placeholder="Email address" formControlName="email"  class="form-control rounded-pill border-0 shadow-sm px-4">
+                                    <small class="text-danger" *ngIf="!Form.get('email').valid && Form.get('email').touched">please write valid email</small>
+                                </div>
+                                <div class="form-group mb-3">
+                                    <input id="inputPassword" type="password" placeholder="Password" formControlName="password" class="form-control rounded-pill border-0 shadow-sm px-4 text-primary">
+                                    <small class="text-danger" *ngIf="!Form.get('password').valid && Form.get('password').touched">please write valid password</small>
+                                </div>
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input id="customCheck1" type="checkbox" checked class="custom-control-input">
+                                    <label for="customCheck1" class="custom-control-label">Remember password</label>
+                                </div>
+                                <div>
+                                    <p>{{loginMode? 'Dont have an account?' : 'Already have an account'}} <a class="text-info" (click)="onLoginMode()"> {{loginMode? 'Create one' : 'SignIn'}}</a>
+                                       <br> <a class="text-info" routerLink="/forgot">forgot Password</a>
+                                    </p>
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-block text-uppercase mb-2 rounded-pill shadow-sm">{{loginMode? 'Sign In' : 'Create account'}}</button>
+                                <a type="button" class="btn btn-outline-info btn-block text-uppercase mb-2 rounded-pill shadow-sm">Goggle Sign in</a>
+                                <a type="button" class="btn btn-outline-info btn-block text-uppercase mb-2 rounded-pill shadow-sm">FaceBook Sign in</a>
+                            </form>
+                        </div>
+                    </div>
+                </div><!-- End -->
+
+            </div>
+        </div><!-- End -->
+
+    </div>
+</div>

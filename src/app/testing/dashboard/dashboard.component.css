@@ -1,0 +1,6 @@
+.new small i {
+    border: 5px solid transparent;
+    padding: 2px 6px;
+    background-color: lightgray;
+    font-size: 22px;
+}
